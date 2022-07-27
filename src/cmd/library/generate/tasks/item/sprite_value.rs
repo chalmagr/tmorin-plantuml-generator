@@ -63,7 +63,7 @@ impl SpriteValueTask {
 
 impl Task for SpriteValueTask {
     fn cleanup(&self, _scopes: &[CleanupScope]) -> Result<()> {
-        log::debug!(
+        log::info!(
             "{} - SpriteValueTask - cleanup {}",
             &self.item_urn,
             &self.full_destination_text
@@ -75,7 +75,7 @@ impl Task for SpriteValueTask {
     }
 
     fn create_resources(&self) -> Result<()> {
-        log::debug!(
+        log::info!(
             "{} - SpriteValueTask - create resource {}",
             &self.item_urn,
             &self.full_destination_text

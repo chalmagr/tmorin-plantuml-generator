@@ -57,7 +57,7 @@ impl SpriteIconTask {
 
 impl Task for SpriteIconTask {
     fn cleanup(&self, _scopes: &[CleanupScope]) -> Result<()> {
-        log::debug!(
+        log::info!(
             "{} - SpriteIconTask - cleanup {}",
             &self.item_urn,
             &self.full_destination_icon
@@ -69,7 +69,7 @@ impl Task for SpriteIconTask {
     }
 
     fn create_resources(&self) -> Result<()> {
-        log::debug!(
+        log::info!(
             "{} - SpriteIconTask - create resource {}",
             &self.item_urn,
             &self.full_destination_icon

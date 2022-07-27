@@ -54,7 +54,7 @@ impl ItemIconTask {
         })
     }
     fn generate_icon_with_inkscape(&self) -> Result<()> {
-        log::debug!(
+        log::info!(
             "generate the icon {} to {} with inkscape",
             &self.full_source_image,
             &self.full_destination_image
@@ -91,7 +91,7 @@ impl ItemIconTask {
         }
     }
     fn generate_icon_with_builtin_library(&self) -> Result<()> {
-        log::debug!(
+        log::info!(
             "generate the icon {} to {} with built library",
             &self.full_source_image,
             &self.full_destination_image
@@ -138,7 +138,7 @@ impl ItemIconTask {
 
 impl Task for ItemIconTask {
     fn cleanup(&self, _scopes: &[CleanupScope]) -> Result<()> {
-        log::debug!("{} - ItemIconTask - cleanup", &self.item_urn);
+        log::info!("{} - ItemIconTask - cleanup", &self.item_urn);
         if CleanupScope::ItemIcon.is_included_in(_scopes) {
             delete_file(Path::new(self.full_destination_image.as_str()))?;
         }
@@ -146,7 +146,7 @@ impl Task for ItemIconTask {
     }
 
     fn create_resources(&self) -> Result<()> {
-        log::debug!("{} - ItemIconTask - create resources", &self.item_urn);
+        log::info!("{} - ItemIconTask - create resources", &self.item_urn);
 
         let icon_destination_path = Path::new(&self.full_destination_image);
 

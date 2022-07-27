@@ -80,7 +80,7 @@ impl Generator {
         log::info!("Start the Create Resources phase.");
         let mut counter = Counter::start(self.tasks.len());
         for task in &self.tasks {
-            log::info!("create_resources {} on task {}.", counter, task.element_shape);
+            log::info!("create_resources on task #{}", counter);
             task.create_resources()?;
             counter.increase();
         }
