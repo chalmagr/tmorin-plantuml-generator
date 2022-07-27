@@ -168,11 +168,15 @@ impl Task for ItemIconTask {
 
         // generate the icon
         if icon_source_extension.eq("svg") {
+            log::info!("generating svg");
             // generate with inkscape when the source is an SVG
             self.generate_icon_with_inkscape()?;
+            log::info!("done svg");
         } else {
+            log::info!("generating other");
             // generate with built-in library when the source is an SVG
             self.generate_icon_with_builtin_library()?;
+            log::info!("done other");
         }
 
         Ok(())
