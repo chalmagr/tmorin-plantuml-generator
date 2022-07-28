@@ -55,16 +55,17 @@ impl ItemIconTask {
     }
     fn generate_icon_with_inkscape(&self) -> Result<()> {
         log::info!(
-            "generate the icon {} to {} with inkscape",
+            "generate the icon {} to {} with inkscape {}",
             &self.full_source_image,
-            &self.full_destination_image
+            &self.full_destination_image,
+            &self.inkscape_binary
         );
 
         // generate the icon
         let output = Command::new(&self.inkscape_binary)
             .arg(&self.full_source_image)
             .arg(format!(
-                "--export-filename={}",
+                "--export-png={}",
                 &self.full_destination_image
             ))
             .arg(format!("--export-height={}", &self.destination_icon_height))
